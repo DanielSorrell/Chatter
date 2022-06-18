@@ -1,0 +1,27 @@
+html {
+  background-image: radial-gradient(white, #b8dcff);
+  font-family: verdana, sans-serif;
+  text-align: center;
+}
+
+#main {
+  border: 3px solid black;
+  background-color: #ebebeb;
+  width: 30%;
+  display: inline-block;
+}
+
+a:visited, a:link {
+  text-decoration: none;
+}
+
+#homePageLink {
+  border: 3px solid black;
+  display: inline-block;
+  background-color: white;
+  width: 20%;
+}
+
+#homePageLink:hover {
+  transform: scale(1.2);
+}

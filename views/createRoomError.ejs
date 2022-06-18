@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/css/createRoomStyles.css">
+  <link rel="shortcut icon" href="#">
+</head>
+
+<body>
+
+  <%- include("partials/partial.ejs")%>
+  <div id="main">
+    <br><a id="homePageLink" href="/">Back</a>
+
+    <h2>Create room</h2>
+
+    <h3>Room name:</h3>
+    <form action="/createRoom" method="post" id="createRoomForm">
+      <input type="text" id="roomID" name="roomID" maxlength="16">
+    </form><br>
+  </div>
+
+  <script>
+    alert("Error: Room ID is already being used.");
+  </script>
+
+</body>
+</html>

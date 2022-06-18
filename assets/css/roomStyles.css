@@ -1,0 +1,218 @@
+html {
+  background-image: linear-gradient(to top, white, #b8dcff);
+  font-family: verdana, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+button, .button, .input {
+  font-family: verdana, sans-serif;
+  background-color: white;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+#showPreviousMessages {
+  display: inline-block;
+  padding: 2px;
+  margin: 3px;
+}
+
+#homePageLink {
+  border: 3px solid black;
+  display: inline-block;
+  background-color: white;
+  width: 10%;
+}
+
+#homePageLink:hover {
+  transform: scale(1.2);
+}
+
+#main {
+  overflow: hidden;
+  height: 92vh;
+  display: flex;
+}
+
+.centerDivContainer {
+  text-align: center;
+}
+
+.mainContainer{
+  display: flex;
+  flex-direction: column;
+  background-color: #ebebeb;
+  border: solid black;
+}
+
+.emptyColumn {
+  display: flex;
+	flex-direction: column;
+  flex: 0.05;
+}
+
+#mainLeftContainer {
+  flex: 0.1;
+}
+
+#mainMiddleContainer {
+  flex: 0.7;
+}
+
+#mainRightContainer {
+  flex: 0.2;
+}
+
+#roomAndUserContainer {
+  display: inline-block;
+  border-style: solid;
+  border-color: black;
+  background-color: #ebebeb;
+  padding: 5px;
+}
+
+#userList {
+  flex-grow: 1;
+  overflow-y: scroll;
+  text-align: center;
+}
+
+#userList::-webkit-scrollbar {
+  display: none;
+}
+
+#dynamicUserList {
+  list-style: none;
+}
+
+.userInRoom {
+  background-color: #b8dcff;
+  border-style: solid;
+  border-color: grey;
+  transform:scale(0.8);
+}
+
+.userInRoom:hover {
+  background-color: white;
+}
+
+#publicMessagesContainer {
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+
+#publicMessagesContainer::-webkit-scrollbar {
+  display: none;
+}
+
+#privateMessagesContainer {
+  flex-grow: 1;
+  height: 70%;
+  overflow-y: scroll;
+}
+
+#privateMessagesContainer::-webkit-scrollbar {
+  display: none;
+}
+
+#inbox {
+  text-align: center;
+  background-color:
+}
+
+.notification {
+  text-align: center;
+  padding: 3px;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #575656;
+  background-color: white;
+  width: fit-content;
+}
+
+.readMessages {
+  color: #000000;
+  text-align: center;
+  background-color: #b8dcff;
+  border-style: solid;
+  border-color: grey;
+}
+
+.readMessages:hover {
+  background-color: white;
+}
+
+.unreadMessages {
+  color: white;
+  text-align: center;
+  background-color: #12f30c;
+  border-style: solid;
+  border-color: grey;
+}
+
+.unreadMessages:hover {
+  color: black;
+  background-color: #bffcbd;
+}
+
+#userToMessage {
+  text-align: center;
+}
+
+#conversation {
+  background-color: white;
+  border-top-style: solid;
+  border-top-color: grey;
+  border-bottom-style: solid;
+  border-bottom-color: grey;
+}
+
+.sentPublicMessage {
+  float: right;
+}
+
+.receivedPublicMessage {
+  float: left;
+}
+
+.clearFloat {
+  clear: both;
+}
+
+.sentDirectMessage {
+  text-align: right;
+}
+
+.receivedPrivateMessage {
+  text-align: left;
+}
+
+#sendMessageContainer {
+  border-top: 2px solid #575656;
+}
+
+.stickyBox {
+  position: sticky;
+  top: 0;
+  background-color: #b8dcff;
+  text-align: center;
+  border-top: solid black;
+  border-bottom: solid black;
+}
+
+a:link {
+  text-decoration: none;
+}

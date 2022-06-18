@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script defer src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
+  <script defer src="/js/home.js"></script>
+  <link rel="stylesheet" href="/css/homeStyles.css">
+  <link rel="shortcut icon" href="#">
+</head>
+
+<body>
+
+  <%- include("partials/partial.ejs")%>
+  <a id="createRoomLink" href="/createRoom">Create a room</a>
+
+  <h3 id="roomsListHeader">No other rooms to join</h3>
+  <div id="liveRoomsContainer"></div>
+
+</body>
+</html>

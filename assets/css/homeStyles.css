@@ -1,0 +1,61 @@
+html {
+  background-image: linear-gradient(to top, white, #b8dcff);
+  font-family: verdana, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+body {
+  text-align: center;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+#centerDiv {
+  text-align: center;
+}
+
+#roomsDiv {
+  border: 3px solid black;
+  background-color: #ebebeb;
+  transform: scale(0.8);
+}
+
+.roomRedirect {
+  border: 3px solid black;
+  background-color: white;
+  display: inline-block;
+  width: 70%;
+  padding: 5px;
+  margin: 10px;
+}
+
+.roomContainer:hover{
+  transform: scale(1.2);
+}
+
+#createRoomLink, #homePageLink {
+  border: 3px solid black;
+  display: inline-block;
+  background-color: white;
+  width: 10%;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  transform: scale(1.2);
+}
+
+#invalidRoomError{
+  border: 3px solid black;
+  background-color: #ebebeb;
+  width: 40%;
+  display: inline-block;
+}

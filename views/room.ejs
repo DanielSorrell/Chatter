@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script defer src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
+  <script defer src="/js/room.js"></script>
+  <link rel="stylesheet" href="/css/roomStyles.css">
+  <link rel="shortcut icon" href="#">
+  <script>
+    const ROOM_ID = "<%= roomId %>";
+  </script>
+</head>
+
+<body>
+
+  <%- include("partials/partial.ejs")%>
+  <div class="centerDivContainer">
+
+    <br><a id="homePageLink" href="/">Leave room</a><br><br><br>
+
+    <div id="roomAndUserContainer">
+      <h2>Room: <%= roomId %> </h2>
+    </div>
+  </div><br>
+
+  <div id="main">
+
+    <div class="mainContainer" id="mainLeftContainer">
+      <div id="userList"></div>
+    </div>
+
+    <div class="emptyColumn"></div>
+
+    <div class="mainContainer" id="mainMiddleContainer">
+      <div id="publicMessagesContainer"></div>
+      <div id="sendMessageContainer">
+        <input type="text" id="messageInput" class="input">
+        <button id="sendMessage">Send</button>
+      </div>
+    </div>
+
+    <div class="emptyColumn"></div>
+
+    <div class="mainContainer" id="mainRightContainer">
+      <div id="privateMessagesContainer"></div>
+    </div>
+
+  </div>
+  <%- include("partials/partial.ejs")%>
+
+</body>
+</html>
