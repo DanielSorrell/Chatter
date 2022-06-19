@@ -68,6 +68,9 @@ io.on("connection", (socket) => {
    * @param {String} userName - name of the user
    */
   socket.on("joinRoom", (roomId, userName) => {
+    if(userName.value == undefined){
+      userName = "No name";
+    }
     socket.join(roomId);
     users.addUser(socket.id, userName, roomId);
     liveRoomsMap.set(roomId, liveRoomsMap.get(roomId)+1);
