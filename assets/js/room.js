@@ -341,8 +341,14 @@ socket.on("previousPublicMessages", (messages) => {
   });
 });
 
-const messageInput = document.getElementById("messageInput");
+const copyRoomLink = document.getElementById("shareRoomLink");
 const sendButton = document.getElementById("sendMessage");
+const messageInput = document.getElementById("messageInput");
+
+/** If user clicks share invite link button, copy URL to user clipboard */
+copyRoomLink.addEventListener("click", () => {
+  navigator.clipboard.writeText(location.href);
+});
 
 /** If user clicks send message button, send user's message input. */
 sendButton.addEventListener("click", (e) => {
