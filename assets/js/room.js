@@ -11,9 +11,6 @@ let privateConversationsMap = new Map();
 /** when the user connects, join room and display username. */
 socket.on("connect", () => {
   socket.emit("joinRoom", ROOM_ID, userName);
-  if(userName.value == undefined){
-    userName = "No name";
-  }
   socket.emit("getPreviousPublicMessages"); //send request to check for public messages sent before the user joined the room
   const userNameHeader = document.createElement("h2");
   userNameHeader.setAttribute("id", "userNameHeader");
