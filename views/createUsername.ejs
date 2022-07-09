@@ -10,15 +10,13 @@
   <%- include("partials/header.ejs")%>
   <div id="main">
     <br><a id="homePageLink" href="/">Back</a>
-
-    <h2>Create room</h2>
-    <form action="/createRoom" method="post" id="createRoomForm">
-      <h3>Room name:</h3>
-      <input type="text" id="roomId" name="roomId" maxlength="16">
-      <h3>User name:</h3>
+    <h2>Joining room: <b><%= roomId %></b></h2>
+    <form action="/createUsername" method="post" id="createUsernameForm">
+      <h2>Choose username:</h2>
       <h4><i>Username must be less than 13 characters</i></h4>
       <input type="text" id="username" name="username" maxlength="12"><br><br>
-      <input type="submit" value="create room">
+      <input type="hidden" id="roomId" name="roomId" value="<%= roomId %>"/>
+      <input type="submit" value="join room">
     </form><br>
   </div>
   <%- include("partials/footer.ejs")%>

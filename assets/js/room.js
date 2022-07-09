@@ -3,18 +3,18 @@ const userList = document.getElementById("userList");
 const roomAndUserContainer = document.getElementById("roomAndUserContainer");
 const publicMessageContainer = document.getElementById("publicMessagesContainer");
 const privateMessagesContainer = document.getElementById("privateMessagesContainer");
-let userName = prompt("Enter your name:");
 let privateConversationView = false;
 let inboxView = true; //empty inbox is displayed by default
 let privateConversationsMap = new Map();
 
 /** when the user connects, join room and display username. */
 socket.on("connect", () => {
-  socket.emit("joinRoom", ROOM_ID, userName);
+  socket.emit("joinRoom", ROOM_ID, USER_NAME);
   socket.emit("getPreviousPublicMessages"); //send request to check for public messages sent before the user joined the room
   const userNameHeader = document.createElement("h2");
   userNameHeader.setAttribute("id", "userNameHeader");
-  userNameHeader.innerHTML = "Your name: " + userName;
+  userNameHeader.innerHTML = "Your name: " + USER_NAME;
+  let userNameDisplay = document.createElement("span");
   roomAndUserContainer.appendChild(userNameHeader);
 });
 
@@ -77,7 +77,7 @@ let renderInbox = () => {
 /**
  * Returns a div with the user message to append to the page.
  * @param {Array} message - array of message date, time, sender, and message
- * @param {Boolean} isPrivate - is true if sent uesr message is private
+ * @param {Boolean} isPrivate - is true if sent user message is private
  */
 let formatMessageAndTime = (message, isPrivate) => {
   const formatting = document.createElement("div");
@@ -175,7 +175,7 @@ let renderConversation = (user) => {
           privateConversationsMap.set(user, stateAndMessagesObj);
         }
         conversation.appendChild(formatMessageAndTime(storedMessage, true));
-        socket.emit("newPrivateMessage", userName, storedMessage, user);
+        socket.emit("newPrivateMessage", USER_NAME, storedMessage, user);
         privateMessageInput.value = "";
       }
     });
@@ -204,7 +204,7 @@ let renderConversation = (user) => {
           privateConversationsMap.set(user, stateAndMessagesObj);
         }
         conversation.appendChild(formatMessageAndTime(storedMessage, true));
-        socket.emit("newPrivateMessage", userName, storedMessage, user);
+        socket.emit("newPrivateMessage", USER_NAME, storedMessage, user);
         privateMessageInput.value = "";
       }
     });
@@ -265,7 +265,7 @@ socket.on("updateUserList", (users) => {
     li.setAttribute("id", users[i]);
     li.innerHTML = users[i];
     ul.appendChild(li);
-    if(userName !== users[i]){ //prevent a user from messaging theirself
+    if(USER_NAME !== users[i]){ //prevent a user from messaging theirself
       /** when the user clicks on another user from the list, display private conversation of selected user. */
       li.addEventListener("click", () => {
         if(privateConversationView == false){
@@ -355,7 +355,7 @@ sendButton.addEventListener("click", (e) => {
   if (messageInput.value.length !== 0) {
     const currentDate = new Date();
     const storedMessage = {
-      sender: userName,
+      sender: USER_NAME,
       date: currentDate.toLocaleDateString(),
       time: currentDate.toLocaleTimeString([], {hour: "2-digit", minute:"2-digit"}),
       message: messageInput.value
@@ -370,7 +370,7 @@ messageInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter" && messageInput.value.length !== 0){
     const currentDate = new Date();
     const storedMessage = {
-      sender: userName,
+      sender: USER_NAME,
       date: currentDate.toLocaleDateString(),
       time: currentDate.toLocaleTimeString([], {hour: "2-digit", minute:"2-digit"}),
       message: messageInput.value
@@ -386,7 +386,7 @@ messageInput.addEventListener("keydown", (e) => {
  */
 socket.on("postPublicMessage", (storedMessage) => {
   let message = formatMessageAndTime(storedMessage, false);
-  if(storedMessage.sender == userName){
+  if(storedMessage.sender == USER_NAME){
     message.classList.add("sentPublicMessage");
   } else {
     message.classList.add("receivedPublicMessage");

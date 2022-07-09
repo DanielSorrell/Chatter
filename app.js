@@ -33,25 +33,42 @@ app.get("/createRoom", (req, res) => {
 
 /** Handle routing for posting and loading a room after creation */
 app.post("/createRoom", (req, res) => {
-  const roomId = req.body.roomId;
-  if(liveRoomsMap.has(roomId)){ //block attempts of creating a room with the same room Id already in use
+  if(liveRoomsMap.has(req.body.roomId)){ //block attempts of creating a room with the same room Id already in use
     res.render("createRoomError");
-    console.log("Duplicate room Id use attempted.");
   } else {
-    liveRoomsMap.set(roomId, 0);
-    const room = new Room({ roomId: roomId });
+    liveRoomsMap.set(req.body.roomId, 0);
+    const room = new Room({ roomId: req.body.roomId });
     room.save();
-    res.redirect("/room/" + roomId);
-    io.emit("addRoom", roomId);
+    res.redirect("/room/" + req.body.roomId + "/" + req.body.username);
+    io.emit("addRoom", req.body.roomId);
   }
 });
 
-/** Handle routing for loading a specific room. */
+/** Handle routing for redirecting the user to create a user name before joining the room. */
 app.get("/room/:roomId", (req, res) => {
   if(liveRoomsMap.has(req.params.roomId)){ //if requested room does not exist, route user to error page
     console.log("Room: " + req.params.roomId + " created");
-    res.render("room", {
+    res.render("createUsername", {
       roomId: req.params.roomId
+     });
+   } else {
+     res.render("invalidRoomError", {
+       roomId: req.params.roomId
+     });
+   }
+});
+
+/** Handle routing to desired room once a valid user name is created. */
+app.post("/createUsername", (req, res) => {
+  res.redirect("/room/" + req.body.roomId + "/" + req.body.username);
+});
+
+/** Handle routing for joining a room once the user creates a valid user name. */
+app.get("/room/:roomId/:username", (req, res) => {
+  if(liveRoomsMap.has(req.params.roomId)){ //if requested room does not exist, route user to error page
+    res.render("room", {
+      roomId: req.params.roomId,
+      username: req.params.username
      });
    } else {
      res.render("invalidRoomError", {
@@ -65,14 +82,14 @@ io.on("connection", (socket) => {
   /**
    * When the user joins a room, add them to the user list and alert the room.
    * @param {String} roomId - name of the joined room
-   * @param {String} userName - name of the user
+   * @param {String} username - name of the user
    */
-  socket.on("joinRoom", (roomId, userName) => {
+  socket.on("joinRoom", (roomId, username) => {
     socket.join(roomId);
-    users.addUser(socket.id, userName, roomId);
+    users.addUser(socket.id, username, roomId);
     liveRoomsMap.set(roomId, liveRoomsMap.get(roomId)+1);
     io.to(roomId).emit("updateUserList", users.getUserList(roomId));
-    io.to(roomId).emit("newUser", userName);
+    io.to(roomId).emit("newUser", username);
 
     /**
      * When a user sends a public message to the room, post the message to every user in the room.

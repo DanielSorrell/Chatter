@@ -9,12 +9,12 @@
 
 <body>
 
-  <%- include("partials/partial.ejs")%>
-  <a id="gitHubLink" href="https://github.com/DanielSorrell/Chatter">GitHub repository</a><br><br>
+  <%- include("partials/header.ejs")%>
   <a id="createRoomLink" href="/createRoom">Create a room</a>
 
   <h3 id="roomsListHeader">No other rooms to join</h3>
   <div id="liveRoomsContainer"></div>
+  <%- include("partials/footer.ejs")%>
 
 </body>
 </html>

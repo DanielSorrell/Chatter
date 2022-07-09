@@ -34,14 +34,18 @@ a:visited {
   width: 10%;
 }
 
+#shareRoomLink {
+  padding: 2px;
+}
+
 #homePageLink:hover, #shareRoomLink:hover {
   transform: scale(1.2);
 }
 
 #main {
   overflow: hidden;
-  height: 92vh;
   display: flex;
+  height: 60vh;
 }
 
 .centerDivContainer {
@@ -79,6 +83,10 @@ a:visited {
   border-color: black;
   background-color: #ebebeb;
   padding: 5px;
+}
+
+.highlightData {
+  color: #b8dcff;
 }
 
 #userList {
