@@ -119,7 +119,7 @@ io.on("connection", (socket) => {
      * When a user sends a private message, send that message to selected user
      * @param {String} sender - name of the user who sent the message
      * @param {Array} message - array of message date, time, sender, and message
-     * @param {Array} receiver - name of the user to receive the message
+     * @param {String} receiver - name of the user to receive the message
      */
     socket.on("newPrivateMessage", (sender, message, receiver) => {
       receiverSocket = users.getUserByName(receiver);
