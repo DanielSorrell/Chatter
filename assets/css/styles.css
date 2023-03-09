@@ -1,14 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html {
-  background-color: lightblue;
+  background-color: rgb(101, 101, 101);
 }
 
 h1 {
   text-align: center;
-}
-
-* {
-  margin: 0;
-  padding: 0;
 }
 
 ul {
@@ -16,9 +16,9 @@ ul {
 }
 
 #homePageRedirect {
-  border: 3px solid black;
+  border: 3px solid white;
+  color: white;
   display: inline-block;
-  background-color: white;
   width: 10%;
 }
 
@@ -39,8 +39,6 @@ ul {
 .mainContainer{
   display: flex;
   flex-direction: column;
-  background-color: #ebebeb;
-  border: solid black;
 }
 
 .emptyColumn {
@@ -50,6 +48,8 @@ ul {
 }
 
 #mainLeftContainer {
+  background-color: #ebebeb;
+  border: solid black;
   flex: 0.1;
   min-height: 25%;
   max-height: 40vh;
@@ -63,6 +63,8 @@ ul {
 }
 
 #mainRightContainer {
+  background-color: #ebebeb;
+  border: solid black;
   flex: 0.2;
   max-height: 55vh;
   height: fit-content;
@@ -212,7 +214,6 @@ a:link:hover {
   background-color: grey;
 }
 
-
 .centerText {
   text-align: center;
 }
@@ -223,4 +224,14 @@ a:link:hover {
 
 #loadMessageDiv {
   text-align: center;
+}
+
+.sendMessageButton {
+  color: black;
+  width: -webkit-fill-available;
+}
+
+.sendMessageButton:hover {
+  background-color: black;
+  color: white;
 }

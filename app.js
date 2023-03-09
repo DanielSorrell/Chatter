@@ -90,7 +90,6 @@ io.on("connection", (socket) => {
      * @param {Array} storedMessage - array of message date, time, sender, and message
      */
     socket.on("message", (storedMessage) => {
-      console.log(storedMessage);
       io.to(roomID).emit("createPublicMessage", storedMessage);
       const message = new Message({
         name: storedMessage.name,

@@ -40,8 +40,6 @@ socket.on("getMessageResponse", (messages, previousMessages) => {
   } else {
     //if previous messages exist, display them to user
     previousPublicMessages = formatMessages(messages);
-
-    // CHECK IF THIS WORKS
     previousPublicMessages.setAttribute("id", "previousPublicMessages");
   }
 });
@@ -117,7 +115,7 @@ let renderInbox = () => {
 
 /**
  * Takes a username and returns a div containing the direct conversation with the selected user.
- * @param {String} user - name of the user to see messages to/from
+ * @param {string} user - name of the user to see messages to/from
  */
 let renderConversation = (user) => {
   if(directConversationView && document.getElementById("userToMessage").innerHTML == user){
@@ -155,6 +153,7 @@ let renderConversation = (user) => {
       const sendDirectMessageButton = document.createElement("input");
       sendDirectMessageButton.type = "button";
       sendDirectMessageButton.setAttribute("id", "sendDirectMessageButton");
+      sendDirectMessageButton.setAttribute("class", "sendMessageButton");
       sendDirectMessageButton.value = "Send";
 
       /** If user clicks send message button, send user"s message input. */
@@ -284,7 +283,8 @@ let renderConversation = (user) => {
 
 /**
  * Takes an array of messages and returns a div containing formatted/styled messages
- * @param {Array} messageArray - array of messages
+ * @param {array} messageArray - array of messages
+ * @returns {div} conversation - div containing formatted/styled messages
  */
 let formatMessages = (messageArray) => {
   let conversation = document.createElement("div");
@@ -370,7 +370,8 @@ let formatMessages = (messageArray) => {
 
 /**
  * Takes a message object and returns a formatted/styled message to display
- * @param {Object} message - Object containing message information
+ * @param {object} message - Object containing message information
+ * @returns {div} messageToDisplay - div containing formatted/styled message
  */
 let formatSingleMessage = (message) => {
 
@@ -534,7 +535,7 @@ message.addEventListener("keydown", (e) => {
 
 /**
  * When a new user joins the room, notify other users through the public message container.
- * @param {String} newUser - username of the new user
+ * @param {string} newUser - username of the new user
  */
 socket.on("newUser", (newUser) => {
   let notification = document.createElement("p");
@@ -546,7 +547,7 @@ socket.on("newUser", (newUser) => {
 
 /**
  * When another user leaves the room, notify other users through the public message container.
- * @param {String} disconnectedUser - name of the disconnected user
+ * @param {string} disconnectedUser - name of the disconnected user
  */
 socket.on("userDisconnect", (disconnectedUser) => {
   let notification = document.createElement("p");
@@ -558,7 +559,7 @@ socket.on("userDisconnect", (disconnectedUser) => {
 
 /**
  * When a user sends a public message, display that message.
- * @param {Object} storedMessage - Object from database containing message information
+ * @param {object} storedMessage - Object from database containing message information
  */
 socket.on("createPublicMessage", (storedMessage) => {
   messageContainer.append(formatSingleMessage(storedMessage));
@@ -569,9 +570,9 @@ socket.on("createPublicMessage", (storedMessage) => {
 /**
  * When the user receives a direct message from another user,
  * store the message and display the message or notify the user.
- * @param {String} sender - name of the message sender
- * @param {Object} date - Date object of when message was sent
- * @param {String} message - String of message contents
+ * @param {string} sender - name of the message sender
+ * @param {object} date - Date object of when message was sent
+ * @param {string} message - String of message contents
  */
 socket.on("new-direct-message", (sender, date, message) => {
   //format message
