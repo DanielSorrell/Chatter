@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script defer src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
+  <script defer src="/js/liveRooms.js"></script>
+  <link rel='stylesheet' href='/css/homePageStyles.css'>
+    const INVALID_ROOM_ID = '<%= roomID %>';
+  </script>
+</head>
+
+<body>
+  <h1>Chatter</h1>
+  <div id='centerDiv'>
+    <div id='invalidRoomError'>
+      <p>Invalid room error: Room <b><%= roomID %></b> has not been created or is not a valid room.</p>
+      <p>Go to the <a id='createRoomLink' href="/createRoom">create room page</a> to create a room,</p>
+      <p>or find a room to join on the <a id='homePagelink' href="/">main page.</a></p>
+    </div>
+  </div>
+
+</body>
+</html>

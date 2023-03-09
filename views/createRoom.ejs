@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script defer src="/js/rooms.js"></script>
+  <link rel='stylesheet' href='/css/createRoomStyles.css'>
+</head>
+
+<body>
+  <h1>Chatter</h1>
+
+  <div id='main'>
+    <br><a id='homePageRedirect' href="/">Back</a>
+
+    <h2>Create room</h2>
+
+    <h3>Room name:</h3>
+    <form action="/createRoom" method="post">
+      <input type="text" id="roomID" name="roomID" maxlength="16">
+    </form><br>
+  </div>
+
+</body>
+</html>

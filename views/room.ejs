@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script defer src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
+  <script defer src="/js/client.js"></script>
+  <link rel='stylesheet' href='/css/styles.css'>
+  <script>
+    const ROOM_ID = '<%= roomID %>';
+  </script>
+</head>
+
+<body>
+  <h1>Chatter</h1>
+
+  <div class='centerDivContainer'>
+
+    <br><a id='homePageRedirect' href="/">Back</a><br><br><br>
+
+    <div id='userInfo'>
+      <h2>Room: <%= roomID %> </h2>
+    </div>
+  </div><br>
+
+  <div id='main'>
+
+    <div class='mainContainer' id='mainLeftContainer'>
+      <div id='userList'></div>
+    </div>
+
+    <div class='emptyColumn'></div>
+
+    <div id='mainMiddleContainer'>
+      <div id="messages" class='mainContainer'>
+        <div id='loadMessageDiv'>
+          <button id='getMessagesButton'>Load previous messages</button>
+        </div>
+      </div>
+      <div id="sendMessageContainer" class='mainContainer'>
+        <input type="text" id="messageInput">
+        <button id="sendMessage">Send</button>
+      </div>
+    </div>
+
+    <div class='emptyColumn'></div>
+
+    <div class='mainContainer' id='mainRightContainer'>
+      <div id="roomMessageWindow"></div>
+    </div>
+
+  </div>
+
+</body>
+</html>

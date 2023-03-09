@@ -1,0 +1,28 @@
+html {
+  background-color: lightblue;
+  text-align: center;
+}
+
+#main {
+  border: 3px solid black;
+  background-color: #ebebeb;
+  width: 30%;
+  display: inline-block;
+}
+
+#homePageRedirect {
+  border: 3px solid black;
+  display: inline-block;
+  background-color: white;
+  width: 20%;
+}
+
+#homePageRedirect:hover {
+  transform: scale(1.2);
+  background-color: grey;
+  color: white;
+}
+
+a:link {
+  text-decoration: none;
+}

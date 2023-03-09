@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    alert('Room name is already being used.');
+  </script>
+  <link rel='stylesheet' href='/css/createRoomStyles.css'>
+</head>
+
+<body>
+  <h1>Chatter</h1>
+
+  <div class='centerDiv'>
+    <div id='main'>
+      <a id='homePageRedirect' href="/">Back</a>
+
+      <h2>Create room</h2>
+
+      <h3>Room name:</h3>
+      <form action="/createRoom" method="post">
+        <input type="text" id="roomID" name="roomID" maxlength="16">
+      </form><br>
+    </div>
+  </div>
+
+</body>
+</html>

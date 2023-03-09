@@ -1,0 +1,226 @@
+html {
+  background-color: lightblue;
+}
+
+h1 {
+  text-align: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+#homePageRedirect {
+  border: 3px solid black;
+  display: inline-block;
+  background-color: white;
+  width: 10%;
+}
+
+#homePageRedirect:hover {
+  transform: scale(1.2);
+  background-color: grey;
+  color: white;
+}
+
+#main {
+  display: flex;
+}
+
+.centerDivContainer {
+  text-align: center;
+}
+
+.mainContainer{
+  display: flex;
+  flex-direction: column;
+  background-color: #ebebeb;
+  border: solid black;
+}
+
+.emptyColumn {
+  display: flex;
+	flex-direction: column;
+  flex: 0.05;
+}
+
+#mainLeftContainer {
+  flex: 0.1;
+  min-height: 25%;
+  max-height: 40vh;
+  height: fit-content;
+  position: sticky;
+  top: 0;
+}
+
+#mainMiddleContainer {
+  flex: 0.7;
+}
+
+#mainRightContainer {
+  flex: 0.2;
+  max-height: 55vh;
+  height: fit-content;
+  position: sticky;
+  top: 0;
+}
+
+#userInfo {
+  display: inline-block;
+  border-style: solid;
+  border-color: black;
+  background-color: #ebebeb;
+  padding: 5px;
+}
+
+#userList {
+  flex-grow: 1;
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
+
+.userInRoom {
+  background-color: lightblue;
+  border-style: solid;
+  border-color: grey;
+  width: fit-content;
+  padding: 2%;
+  margin: 8%;
+}
+
+.userInRoom:hover {
+  background-color: white;
+}
+
+#messages {
+  flex-grow: 1;
+  overflow-y: scroll;
+  background-color: #ebebeb;
+  min-height: 30vh;
+  max-height: 60vh;
+}
+
+.message {
+  white-space: initial;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #575656;
+  background-color: white;
+}
+
+#roomMessageWindow {
+  flex-grow: 1;
+  height: 70%;
+  overflow-y: scroll;
+}
+
+#inbox {
+  text-align: center; 
+}
+
+#inboxRedirectButton {
+  margin-right: 10%
+}
+
+#sendDirectMessageButton {
+  display: block;
+}
+
+#directMessageInput {
+  width: -webkit-fill-available;
+}
+
+#messageInput {
+  width: 40vh;
+}
+
+.readMessages {
+  color: #000000;
+  text-align: center;
+  background-color: lightblue;
+  border-style: solid;
+  border-color: grey;
+}
+
+.readMessages:hover {
+  background-color: white;
+}
+
+.unreadMessages {
+  color: white;
+  text-align: center;
+  background-color: #12f30c;
+  border-style: solid;
+  border-color: grey;
+}
+
+.unreadMessages:hover {
+  color: black;
+  background-color: #bffcbd;
+}
+
+#userToMessage {
+  text-align: center;
+}
+
+#conversation {
+  background-color: white;
+}
+
+#conversationHeader {
+  position: sticky;
+  top: 0;
+  background-color: #ebebeb;
+  border-bottom: 2px solid black;
+}
+
+.sentMessage {
+  text-align: right;
+}
+
+.receivedMessage {
+  text-align: left;
+}
+
+#sendMessageContainer {
+  border-top: 2px solid #575656;
+  margin-top: 4%;
+  margin-left: auto;
+  margin-right: auto;
+  height: fit-content;
+  width: fit-content;
+}
+
+.messageDateBox {
+  color: black;
+  background-color: darkgrey;
+  text-align: center;
+  border-top: solid black;
+  border-bottom: solid black;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:link:hover {
+  background-color: grey;
+}
+
+
+.centerText {
+  text-align: center;
+}
+
+.notification {
+  text-align: center;
+}
+
+#loadMessageDiv {
+  text-align: center;
+}
